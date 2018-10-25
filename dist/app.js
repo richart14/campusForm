@@ -1,5 +1,5 @@
-/* global $ */
-
+/* global $ api */
+const postURL = 'https://secure.leads360.com/Import.aspx?Provider=GoogleADC&amp;Client=IntercoastCollege&amp;CampaignId=1273&amp;URL=https://www.intercoast.edu/why-intercoast/thanks-intercoast-2/';
 const totalQuestions = $('.question').size();
 const questions = $('.question');
 let currentQuestion = 0;
@@ -20,6 +20,11 @@ $('.entryForm').submit(e => {
     $(questions.get(currentQuestion)).fadeIn();
   }
   console.log(newEntry);
+});
+
+$('#submitButton').click(() => {
+  console.log(newEntry);
+  api.post(postURL, newEntry);
 });
 
 $('.selectForm').submit(e=> {
